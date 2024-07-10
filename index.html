@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Sign Up</title>
 </head>
 <body>
+    <h1>Sign Up</h1>
+    <div class="names">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+    </div>
+    <div>
+        <input id="phone" type="tel" placeholder="Mobile No.">    
+    </div>
+    <div>
+        <input id="email" type="email" placeholder="Email Address">   
+    </div>
     
+
+    <div class="password">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+    </div>
+    <div class="terms">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">I Agree</label>
+        
+        <span>
+            By clicking <button type="line-button" id="inline-button">Register</button>, you agree to the <a href="https://example.com/">Terms and Condition</a> set out by this site, including our Cooke Use.
+        </span>
+    </div>
+    
+
+    <div class="btn">
+        <button type="button">Register</button>
+        <button type="button">Sign In</button>
+    </div>
 </body>
 </html>

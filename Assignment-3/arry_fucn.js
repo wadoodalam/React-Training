@@ -1,7 +1,17 @@
 /*
     Q: Explain what is prototype and what is prototype chain in your own words.
-  Ans:  
-*/
+  Ans:  Prototype is a special property of a newly crated object in javascript. Essentially, the prototype is an object 
+  itself which is referenced by the newly created object in javascript (`__proto__`). The created object also inherits 
+  functions and from the prototype object. An example would be when an array is created, you can `arr.XXX` syntax to access 
+  all the prototype methods(e.g. slice, sort, push, etc) of the array object.
+  
+  Prototype chain is essentially a series of links between objects via the prototype property. For a created object, 
+  when you try to access the properties or methods of that object, javascript tries to find called upon property/method
+  from the object directly. if it does not find it there, it then goes through the created object's prototype. if it is 
+  still not found, it nests itself further into the prototype's prototype, and keeps nesting itself if it found the called
+  upon property/method or reaches the end of the chain(null). This traversal through these links can be understood 
+  as prototype chains. 
+  */
 
 
 

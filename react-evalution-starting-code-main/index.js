@@ -118,7 +118,8 @@ const View = (() => {
   const inventoryList = document.querySelector(".inventory__list");
   const cartList = document.querySelector(".cart__list");
   const checkoutButton = document.querySelector(".checkout-btn");
-
+  const sortButton = document.querySelector(".sort-btn");
+  const sortType = document.querySelector(".sort-type");
   const renderInventory = (inventory) => {
     inventoryList.innerHTML = inventory.map((item) => {
       return `<li id="${item.id}">
@@ -148,6 +149,8 @@ const View = (() => {
     renderInventory,
     renderCart,
     checkoutButton,
+    sortButton,
+    sortType
   };
 })();
 
@@ -168,8 +171,30 @@ const Controller = ((model, view) => {
     handleAddToCart();
     handleDelete();
     handleCheckout();
+    handleSort();
+  };
+  const handleSort = () => {
+    let count = 0
+    view.sortButton.addEventListener('click', () => {
+      count++;
+      if (count % 2 === 1){
+        state.inventory.sort((a, b) => {
+          return a.content.localeCompare(b.content);
+          
+        });
+        view.sortType.innerHTML = "Ascending";
+      } else if(count % 2 === 0){
+        state.inventory.sort((a, b) => {
+          return b.content.localeCompare(a.content);
+        });
+        view.sortType.innerHTML = "Descending";
+      }
+
+      view.renderInventory(state.inventory);
+    });
   };
   const handleUpdateAmount = () => {
+    
     view.inventoryList.addEventListener('click', (e) => {
       const btn = e.target;
       const li = btn.parentElement;
@@ -201,12 +226,13 @@ const Controller = ((model, view) => {
 
           if (amount > item.count) {
             alert(`The max available count of ${item.content} is ${item.count}`);
+            return;
           }
 
           if (cartItem) {
             await model.updateCart(id, cartItem.amount + amount);
           } else {
-            await model.addToCart({ ...item, amount });
+            await model.addToCart({ id: item.id, content: item.content, amount: amount });
           }
           state.cart = await model.getCart();
 

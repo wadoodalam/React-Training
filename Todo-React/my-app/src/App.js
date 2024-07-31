@@ -6,8 +6,8 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const deleteHandler = (id) => {
-    console.log(id);
-
+    const updatedTodos = todos.filter(todo => todo.id !== id);
+    setTodos(updatedTodos);
   };
 
   const addNewTodo = (newTodoVal) => {

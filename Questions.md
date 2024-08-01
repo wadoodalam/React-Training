@@ -44,13 +44,13 @@ advanced use cases.
 
 ## What is useState?
 
-useState is a react hook that allows to add and manage state within functional components i.e allowing to set and update values that change over time like user inputs. There is a state variable initialized with a value and also a state functions to to set/update it. This setup allows to the components to keep and update its data whenever needed along with triggering re-rendering to show the changes.
+useState is a react hook that allows to add and manage state within functional components i.e allowing to set and update values that change over time like user inputs. There is a state variable initialized with a value and also a state functions to to set/update it. This setup allows to the components to keep and update its data whenever needed along with triggering re-rendering to show the changes. It returns a variable with the current state value(may or maynot be initial value) and a function to update to the state value.
 
 ## What is props drilling and state lifting?
 
 `Props Drilling` is when props need to passed down through the tree/nested layer(top-to-bottom) from the root to the target nested child in tree via all the intermediaries. For example, in a component tree, if the the grand child(leaf node), needs a prop, the prop would need to passed through the parent node and the grandparent node(which is the root).
 
-`state lifting` is when the state of a lower level component is is moved to a higher level component in the tree when there is a need for the child component to update the state of its parent or another sibling component, for example from left sub-tree to right subtree.
+`state lifting` is when the state of a lower level component is is moved to a higher level component in the tree when there is a need for the child component to update the state(or share state) of its parent or another sibling component, for example from left sub-tree to right subtree.
 
 ## What is the ‘key’ attribute?
 

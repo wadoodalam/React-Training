@@ -1,9 +1,12 @@
 import "./App.css";
-import { useState } from 'react';
-import Todo from './Components/Todo';
+import { useState, useContext } from 'react';
+import Todo from './Components/Todo'; 
+import { TodoContext } from "./Context/TodoContext";
+import TodoForm from './Components/TodoForm';
 
 function App() {
   const [todos, setTodos] = useState([]);
+
 
   const deleteHandler = (id) => {
     const updatedTodos = todos.filter(todo => todo.id !== id);
@@ -11,47 +14,33 @@ function App() {
   };
 
   const addNewTodo = (newTodoVal) => {
-    const newTodos = [...todos, { title: newTodoVal, id: Date.now() }];
+    const newTodos = [...todos, { title: newTodoVal, id: todos.length + 1 }];
     setTodos(newTodos);
   };
 
   const todoRenderFlag = true;
 
   return (
-    <div>
-      <TodoForm addNewTodo={addNewTodo} />
-      {todoRenderFlag
-        ? todos.map((todo, index) => {
-          return (
-            <Todo
-              title={todo.title}
-              deleteHandler={deleteHandler}
-              key={index}
-              id={todo.id}
-            />
-          );
-        })
-        : null
-      }
-    </div>
+  
+      <TodoContext.Provider value={{ todos, setTodos, deleteHandler, addNewTodo}}>
+        <div>
+          <TodoForm />
+          {todoRenderFlag
+            ? todos.map((todo, index) => {
+              return (
+                <Todo
+                  todo={todo}
+                  key={index}
+                />
+              );
+            })
+            : null}
+        </div>
+      </TodoContext.Provider>
+
   );
 }
 
-let count = 0;
-function TodoForm({ addNewTodo }) {
-  const [inputVal, setInputVal] = useState("");
 
-  const handleInputChange = (e) => {
-    setInputVal(e.target.value);
-    count++;
-  };
-
-  return (
-    <div>
-      <input value={inputVal} onChange={handleInputChange} />
-      <button onClick={() => { addNewTodo(inputVal); }}>Add Todo</button>
-    </div>
-  );
-}
 
 export default App;

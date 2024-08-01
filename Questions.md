@@ -63,3 +63,19 @@ A `synthetic event` is a cross-browser wrapper around the browser's native event
 ## What is virtual dom?
 
 It is a representation of a real DOM(in sync with the real DOM) which is saved in the memory. When an update happens, react will generate a new version of the virtual DOM, and then compare it with the previous virtual DOM(using diffing algorithm). After the comparison, the final version is decided, react will update the real DOM wherever changes are required. 
+
+## What is useEffect? What are the different behaviors of useEffect? What is a dependency array?
+`useEffect` is a react hook which allows you to perform 'side effects' such as fetching data form API. The behaviors of `useEffect` include:
+* It runs after every render
+* It can run only once, after the initial render, if the dependency array is empty. 
+* It can run after the dependency has changed, assuming a dependency is specified.
+* It can have a clean-up function that runs during `unmounting`
+
+A dependency array is a second argument that is passed in `useEffect` that triggers a re-run after if there is any change in it. It specifies which values the `useEffect` depends on after the initial re-render.  
+
+## What is useRef and when do you want to use it?
+`useRef` is a react hook which allows the the corresponding value to persist across renders, without causing any additional re-renders. It is used when you have to access and interact with the DOM directly like integrating a third-party library that require direct DOM manipulation. It is also used to store mutable values such as timers or previous state values without triggering a re-render.
+
+## How to reuse hook logic in React?
+
+Hook logic can be reused in react by creating custom hooks which you can create allowing for state management or encapsulation. Instead of writing the logic again and again, it allows for reusability wherever it is required in your app.

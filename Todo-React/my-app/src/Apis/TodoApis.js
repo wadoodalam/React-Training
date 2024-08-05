@@ -1,9 +1,6 @@
 
 const baseURL = "http://localhost:3000/todos";
 export default class TodoApi {
-
-    
-    
     getTodos = async () => {
         try {
             const response = await fetch(baseURL);

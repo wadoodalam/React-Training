@@ -1,0 +1,64 @@
+{
+    "office":[
+        {
+            "region": "US",
+            "model": "A",
+            "sales": 150,
+            "id": "dc1c"
+        },
+        {
+            "region": "US",
+            "model": "B",
+            "sales": 120,
+            "id": "dcb8"
+        },
+        {
+            "region": "US",
+            "model": "C",
+            "sales": 350,
+            "id": "a080"
+        },
+        {
+            "region": "EU",
+            "model": "A",
+            "sales": 200,
+            "id": "dd34"
+        },
+        {
+            "region": "EU",
+            "model": "B",
+            "sales": 100,
+            "id": "5900"
+        },
+        {
+            "region": "EU",
+            "model": "C",
+            "sales": 250,
+            "id": "4a5c"
+        },
+        {
+            "region": "CA",
+            "model": "A",
+            "sales": 200,
+            "id": "9983"
+        },
+        {
+            "region": "CA",
+            "model": "B",
+            "sales": 100,
+            "id": "a302"
+        },
+        {
+            "region": "CA",
+            "model": "C",
+            "sales": 230,
+            "id": "2a71"
+        },
+        {
+            "region": "CA",
+            "model": "D",
+            "sales": 400,
+            "id": "2499"
+        }
+    ]   
+}

@@ -146,7 +146,7 @@ Virtual DOM is a representation of a real DOM(in sync with the real DOM) which i
 
 ## Explain the concept of Higher-Order Components (HOCs) and provide an example use case?
 
-HOCs are basically a technique in react to which allows re-using of a components logic with different props by wrapping around a component and returning the outer component. An example use case could be creating an HOC that handlers user-authentication logic for allowing only authenticated users to access certain components. 
+HOCs are functions react to which allows re-using of a components logic with different props by wrapping around a component and returning the outer component. An example use case could be creating an HOC that handlers user-authentication logic for allowing only authenticated users to access certain components. 
 
 ```javascript
 import React from 'react';

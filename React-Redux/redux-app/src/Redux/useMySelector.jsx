@@ -10,7 +10,7 @@ export default function useMySelector(selectorFunc) {
         });
         // clean-up func
         return () => unsubscribe();
-    }, []);
+    }, [selectorFunc]);
 
 
 

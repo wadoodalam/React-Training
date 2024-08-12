@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  justify-content: space-between; 
+  padding: 20px;
+}
+
+.results {
+  flex: 2; 
+  margin-right: 10%;
+  flex: 0 0 500px;
+}
+
+.wishlist {
+  max-width: 500px;
+}

@@ -41,7 +41,7 @@ const bookSlice = createSlice({
             })
             .addCase(fetchBooks.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                console.log(action.payload);
+                //console.log(action.payload);
                 state.books = action.payload;
             });
     }

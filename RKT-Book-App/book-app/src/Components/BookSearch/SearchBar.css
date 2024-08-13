@@ -1,0 +1,17 @@
+.autocomplete {
+    position: absolute;
+    border: 2px solid black;
+    background-color: white;
+    list-style:none
+  }
+  .option {
+    padding: 5px;
+  }
+
+  .option:hover {
+    background-color: lightgrey;
+  }
+  
+  .active-option {
+    background-color: lightgrey;
+  }

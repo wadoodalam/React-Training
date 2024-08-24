@@ -5,7 +5,7 @@ export default function Calendar() {
 
     const [weeks, setWeeks] = useState([]);
     const [currYear, setCurrYear] = useState(date.getFullYear());
-    const [currMonth, setCurrMonth] = useState(date.getMonth());
+    const [currMonth, setCurrMonth] = useState(date.getMonth() - 7);
     const [cellFlag, setCellFlag] = useState(false);
     const [cellDayNum, setCellDayNum] = useState();
     const [cellDate, setCellDate] = useState();
@@ -14,20 +14,8 @@ export default function Calendar() {
 
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    const month = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ];
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
     const daysInMonth = (year, month) => {
         // date constructor starts from index 1, hence month + 1
@@ -73,6 +61,40 @@ export default function Calendar() {
         setCellDayNum(dayNum);
         setCellFlag(true);
     };
+    const getPrevMonth = (month) => {
+        let prevMonth;
+        if (month === 0) {
+            prevMonth = 11;
+        } else {
+            prevMonth = currMonth - 1;
+        }
+        return prevMonth;
+    };
+
+    const getNextMonth = (month) => {
+        let nextMonth;
+        if (month === 11) {
+            nextMonth = 0;
+        } else {
+            nextMonth = month + 1;
+        }
+        return nextMonth;
+    };
+
+    //console.log(prevMonth, currMonth, nextMonth)
+    const handlePrevMonthClick = () => {
+        if (currMonth === 0) {
+            setCurrYear(currYear - 1);
+        }
+        setCurrMonth(getPrevMonth(currMonth));
+    };
+
+    const handleNextMonthClick = () => {
+        if (currMonth === 11) {
+            setCurrYear(currYear + 1);
+        }
+        setCurrMonth(getNextMonth(currMonth));
+    };
     if (cellFlag) {
         return (
             <div>
@@ -89,6 +111,16 @@ export default function Calendar() {
     }
     return (
         <div>
+
+            <div className='nav-bar'>
+                <span>
+                    <button onClick={handlePrevMonthClick}> &lt; </button>
+                    <span> {month[getPrevMonth(currMonth)]} {month[currMonth]} {month[getNextMonth(currMonth)]}</span>
+                    <button onClick={handleNextMonthClick}> &gt; </button>
+                    Full year {currYear}
+                </span>
+            </div>
+
             <h1>Calendar for {month[currMonth]} {currYear}</h1>
             <table className="calendar">
                 <thead>

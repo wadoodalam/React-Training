@@ -2,7 +2,6 @@
 .calendar {
   width: 100%;
   max-width: 1000px;
-  margin-top: 100px;
   margin-left: 25%;
   border: 1px solid #0073e6;
   border-spacing: 0;
@@ -56,11 +55,3 @@ td:nth-child(7) {
 td:hover {
   background-color: #f0f8ff;
 }
-
-/* Styling for today's date */
-td.active {
-  background-color: #ffeb3b;
-}
-
-
-

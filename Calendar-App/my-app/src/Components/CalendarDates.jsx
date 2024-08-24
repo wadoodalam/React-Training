@@ -2,7 +2,6 @@ import React from 'react';
 export default function CalendarDates({ week, handleCellClicked}) {
 
     const currDate = new Date().getDate()
-    console.log(currDate) 
 
     const handleClick = (index) => (e) => {
         const date = e.target.textContent;   

@@ -5,7 +5,7 @@ export default function Calendar() {
 
     const [weeks, setWeeks] = useState([]);
     const [currYear, setCurrYear] = useState(date.getFullYear());
-    const [currMonth, setCurrMonth] = useState(date.getMonth() - 7);
+    const [currMonth, setCurrMonth] = useState(date.getMonth());
     const [cellFlag, setCellFlag] = useState(false);
     const [cellDayNum, setCellDayNum] = useState();
     const [cellDate, setCellDate] = useState();
@@ -114,11 +114,14 @@ export default function Calendar() {
 
             <div className='nav-bar'>
                 <span>
-                    <button onClick={handlePrevMonthClick}> &lt; </button>
-                    <span> {month[getPrevMonth(currMonth)]} {month[currMonth]} {month[getNextMonth(currMonth)]}</span>
-                    <button onClick={handleNextMonthClick}> &gt; </button>
-                    Full year {currYear}
+                    <span className='prev-month' onClick={handlePrevMonthClick}> &lt;  {month[getPrevMonth(currMonth)]} </span>
+                    <span className='current-month'>  {month[currMonth]} </span>
+                    <span className='next-month' onClick={handleNextMonthClick}> {month[getNextMonth(currMonth)]} &gt; </span>
+                    
+                    <span className='year'>Full year {currYear}</span>
                 </span>
+
+                
             </div>
 
             <h1>Calendar for {month[currMonth]} {currYear}</h1>
@@ -140,7 +143,7 @@ export default function Calendar() {
                     {
                         weeks?.map((week) => (
                             <tr>
-                                <CalendarDates week={week} handleCellClicked={handleCellClicked} />
+                                <CalendarDates week={week} handleCellClicked={handleCellClicked} currMonth={currMonth} />
                             </tr>
                         ))
                     }

@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Container for the calendar */
+.calendar {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 100px;
+  margin-left: 25%;
+  border: 1px solid #0073e6;
+  border-spacing: 0;
+  font-family: Arial, sans-serif;
+  height: 600px;
+  background-color:#e0e0e0 ;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* Header for the current month */
+.curr-month th {
+  text-align: center;
+  background-color:#e0e0e0 ;
+  grid-column: span;
+  padding: 3px 0;
+  font-size: large;
 }
+
+/* Header row for days of the week */
+.days-row th {
+  background-color: #c0c0c0;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: large;
+}
+
+/* Each cell for the days */
+td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 14.28%; /* Ensures equal width for each day column */
+  cursor: pointer;
+  background-color: #f0f0f0;
+  font-size: large;
+}
+
+/* Highlight for Sundays */
+td:nth-child(1) {
+  color: red;
+}
+
+/* Highlight for Saturdays */
+td:nth-child(7) {
+  color: gray;
+}
+
+/* Styling for selected or highlighted days */
+td:hover {
+  background-color: #f0f8ff;
+}
+
+/* Styling for today's date */
+td.active {
+  background-color: #ffeb3b;
+}
+
+
+

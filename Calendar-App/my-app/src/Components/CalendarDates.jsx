@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
 export default function CalendarDates({ week, handleCellClicked}) {
+
+    const currDate = new Date().getDate()
+    console.log(currDate) 
 
     const handleClick = (index) => (e) => {
         const date = e.target.textContent;   
@@ -12,7 +14,12 @@ export default function CalendarDates({ week, handleCellClicked}) {
 
             {
                 week?.map((days, index) => (
-                    <td onClick={handleClick(index)} key={index}>{days}</td>
+                    days === currDate ? (
+                        <td onClick={handleClick(index)} key={index} style={{backgroundColor: '#ffecb3' }}> {days}</td>
+                    ) : (
+                        <td onClick={handleClick(index)} key={index}>{days}</td>
+                    )
+                    
                 ))
             }
 

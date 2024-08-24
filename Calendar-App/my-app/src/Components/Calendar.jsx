@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import CalendarDates from './CalendarDates';
-
 export default function Calendar() {
     const date = new Date();
 
@@ -13,15 +12,7 @@ export default function Calendar() {
 
     //console.log(date.getDate())
 
-    const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ];
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     const month = [
         "January",
@@ -102,7 +93,7 @@ export default function Calendar() {
             <table className="calendar">
                 <thead>
                     <tr className="curr-month">
-                        <th>{month[currMonth]}</th>
+                        <th colSpan="7">{month[currMonth]}</th>
                     </tr>
                     <tr className="days-row">
                         {

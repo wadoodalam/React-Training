@@ -57,7 +57,7 @@ test("renders fetched todos on mount", async () => {
 test("handles API fetch failure", async () => {
     server.use(
         rest.get("https://jsonplaceholder.typicode.com/todos", (req, res, ctx) => {
-            return res(ctx.status(500));
+            return res(ctx.status(404));
         })
     );
     // use getByText when testing for ele existence, and queryByText for NO existence

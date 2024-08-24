@@ -201,3 +201,12 @@ I personally prefer functional components as they allow for better modularity an
 * Ensuring proper naming conventions
 * Clear commenting to highlight the logic
 * Create various files for different logics/components to ensure that the code is not messy, hence readable and scalable.
+
+
+## What are middleware functions in Express.js, and how do they work?
+
+## What is JWT, and how does it work?
+
+## How do you securely store JWT on the client-side?
+
+## How does token expiration work in JWT?
